@@ -57,7 +57,7 @@ app.use(cors({
 
 
 app.get('/', function (req, res) {
-    res.json("Đây là server của thực tập rikkeisoft")
+    res.json("Đây là server spa")
 })
 
 app.use('/auth', authRouters);
