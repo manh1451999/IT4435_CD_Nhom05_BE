@@ -12,7 +12,6 @@ const acesssSecretKey = process.env.ACCESS_TOKEN_SECRET || "Manh.1451999";
 const refreshTokenLife = process.env.REFRESH_TOKEN_LIFE || "3650d";
 const refreshSecretKey = process.env.REFRESH_TOKEN_SECRET || "Manh.1451999-Refesh";
 
-
 let controller = {}
 
 controller.login = async (req, res) => {
@@ -86,26 +85,18 @@ controller.login = async (req, res) => {
 
             }
         }
-
-
-
-
     }
     catch (err) {
         res.status(500).json({ err: err })
     }
-
 }
 
 controller.logout = async (req, res) => {
     try {
-
-
         res.clearCookie('access_token');
         res.clearCookie('refresh_token');
 
         res.json({ message: "logout success" })
-
     }
     catch (err) {
         console.log(err);
@@ -134,13 +125,10 @@ controller.refreshToken = async (req, res) => {
             //secure: true;
         })
 
-
-
         res.status(200).json({
             message: "success",
             access_token: accessToken
         })
-
 
     }
     catch (err) {
@@ -213,7 +201,6 @@ controller.loginAdmin = async (req, res) => {
 
         })
 
-
         const payloadUser = {
             id: checkUser._id,
             email: checkUser.email,
@@ -252,8 +239,5 @@ controller.loginAdmin = async (req, res) => {
     }
 
 }
-
-
-
 
 module.exports = controller
